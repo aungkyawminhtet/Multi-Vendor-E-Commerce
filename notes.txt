@@ -1,0 +1,21 @@
+//lib
+npx shadcn@latest init
+npx shadcn@latest add --all
+npx create-payload-app --use-npm
+npm install @payloadcms/payload-cloud
+
+
+
+
+//create model in payload
+import type { CollectionConfig } from "payload";
+export const Category: CollectionConfig = {
+     slug: "category",
+     fields: [
+         {
+             name: "name",
+             type:"text",
+             unique: true
+         }
+     ]
+ }
