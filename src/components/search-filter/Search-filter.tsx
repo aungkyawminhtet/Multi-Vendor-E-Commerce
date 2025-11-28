@@ -12,6 +12,7 @@ const SearchFilter = async() => {
     const data = await payload.find({
         collection: 'category' as CollectionSlug,
         depth: 1,
+        // pagination: false,
         where: {
             parent: {
                 exists : false

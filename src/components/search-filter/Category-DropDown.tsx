@@ -3,7 +3,6 @@
 import React, { useRef, useState } from "react";
 import { Button } from "../ui/button";
 import { cn } from "@/lib/utils";
-import { is } from "date-fns/locale";
 import DropDownPosition from "./DropDown-position";
 import SubCategories from "./SubCategories";
 
