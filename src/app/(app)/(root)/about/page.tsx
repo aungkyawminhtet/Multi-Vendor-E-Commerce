@@ -8,12 +8,19 @@ const page = async() => {
     config: configPromise
   });
   const data = await payload.find({
-    collection: 'category' as CollectionSlug
+    collection: 'category' as CollectionSlug,
+    depth: 1,
+    where: {
+      parent: {
+        exists : false
+      }
+    }
   });
   console.log("cat data", data);
   return (
     <div>
       <h1>about page</h1>
+      {JSON.stringify(data, null, 4)}
     </div>
   )
 }

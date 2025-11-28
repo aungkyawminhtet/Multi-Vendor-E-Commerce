@@ -9,7 +9,7 @@ import { MenuIcon, X } from 'lucide-react'
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
   return (
-    <nav className='flex justify-between items-center py-3.5 px-6 border-b-1'>
+    <nav className='flex justify-between items-center py-3.5 px-6 border-b-1 shadow-lg z-30'>
         <Link href="/">
             <span className='font-bold text-xl'>Shoopy Ak</span>
         </Link>
