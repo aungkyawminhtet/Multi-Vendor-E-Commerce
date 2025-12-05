@@ -5,8 +5,6 @@ npx create-payload-app --use-npm
 npm install @payloadcms/payload-cloud
 
 
-
-
 //create model in payload
 import type { CollectionConfig } from "payload";
 export const Category: CollectionConfig = {

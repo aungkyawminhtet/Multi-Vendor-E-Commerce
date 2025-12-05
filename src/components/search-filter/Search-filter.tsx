@@ -1,31 +1,28 @@
-import React from 'react'
-import { getPayload, type CollectionSlug } from 'payload';
-import configPromise from '@payload-config';
-import SearchInput from './Search-Input';
-import Categories from './Categories';
+'use client'
+import React, { useState } from "react";
+import SearchInput from "./Search-Input";
+import Categories from "./Categories";
+import { Button } from "../ui/button";
+import { ListFilterIcon } from "lucide-react";
+import CategorySidebar from "./Categories-Sidebar";
 
+const SearchFilter = ({data}: {data:any}) => {
 
-const SearchFilter = async() => {
-    const payload = await getPayload({
-        config: configPromise
-    });
-    const data = await payload.find({
-        collection: 'category' as CollectionSlug,
-        depth: 1,
-        // pagination: false,
-        where: {
-            parent: {
-                exists : false
-            }
-        }
-    });
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className='relative flex flex-col gap-y-3 w-full'>
-        <SearchInput />
+    <div className="relative flex md:flex-col gap-3 w-full">
+      <SearchInput />
+      <CategorySidebar data={data} isAnySidebar={isOpen} setIsAnySidebar={setIsOpen} />
+      <div className="hidden md:block">
         <Categories data={data} />
+      </div>
+      <Button className="flex md:hidden bg-transparent text-black" onClick={() => setIsOpen(true)}>
+        All
+        <ListFilterIcon />
+      </Button>
     </div>
-  )
-}
+  );
+};
 
-export default SearchFilter
+export default SearchFilter;

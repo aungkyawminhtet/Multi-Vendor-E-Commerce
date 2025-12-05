@@ -1,3 +1,4 @@
+import { SubCategorySchema } from "@/model/NavbarSchema";
 import React from "react";
 
 interface SubCategoriesProps {
@@ -27,7 +28,7 @@ const SubCategories = ({
         style={{background}}
         className="w-60 text-black rounded-md p-4 overflow-hidden shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] -translate-x-[2px] -translate-y-[2px]"
       >
-        {subCategories.subCategories?.docs.map((subCat: any) => (
+        {subCategories.subCategories?.docs.map((subCat: SubCategorySchema) => (
           <div className="p-1 cursor-pointer select-none hover:bg-gray-50/50 rounded transition-all duration-300" key={subCat.id}>{subCat.name}</div>
         ))}
       </div>
